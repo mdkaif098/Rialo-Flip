@@ -1,0 +1,211 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+    margin: 0;
+
+    /* --- NEW ANIMATED BACKGROUND --- */
+    /* A gradient with more color stops for a richer animation */
+    background: linear-gradient(135deg, #6a11cb, #2575fc, #ff7e5f, #feb47b);
+    /* Make the background much larger than the viewport */
+    background-size: 400% 400%;
+    /* Apply the animation */
+    animation: gradientAnimation 15s ease infinite;
+}
+
+/* NEW: Keyframes for the animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+/* Game Board */
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    perspective: 1000px; /* Essential for the 3D flip effect */
+}
+
+/* Card Container */
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/* Inner element that actually flips */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* Apply the flip when .flipped class is added to the .card container */
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Front and Back Faces */
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hides the side of the element not facing the screen */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Style the front face (image side, hidden by default) */
+.card-front {
+    background-color: #f0f0f0;
+    transform: rotateY(180deg);
+}
+
+.card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images fill the card without distortion */
+    border-radius: 8px;
+}
+
+/* Style the back face (visible by default) */
+.card-back {
+    background: linear-gradient(to bottom right, #ff7e5f, #feb47b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card-back::after {
+    content: 'R'; /* 'R' for Rialo */
+}
+
+/* Win Message Styling */
+#win-message {
+    margin-top: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ADD THIS TO YOUR CSS FILE */
+
+/* Stats Container */
+#stats-container {
+    display: flex;
+    justify-content: space-around;
+    width: 250px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 5px 0;
+}
+
+/* Restart Button */
+#restart-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    background-color: #ff7e5f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#restart-button:hover {
+    background-color: #feb47b;
+}
+
+/* ADD THESE NEW STYLES TO YOUR CSS FILE */
+
+/* Difficulty Selector */
+#difficulty-selector {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.difficulty-btn {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    margin: 0 10px;
+    cursor: pointer;
+    border: 2px solid #ff7e5f;
+    background-color: transparent;
+    color: white;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.difficulty-btn:hover {
+    background-color: #ff7e5f;
+    color: white;
+}
+
+/* NEW: Match Animation Keyframes */
+@keyframes matchPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+/* NEW: Class to apply the animation */
+.card.matched .card-inner {
+    animation: matchPulse 0.5s ease-in-out;
+    box-shadow: 0 0 15px 5px #00ff84; /* Optional: Add a success glow */
+}
+
+/* Make sure the .hidden class is robust */
+.hidden {
+    display: none;
+}
+
+/* ADD THIS TO YOUR CSS FILE */
+
+#high-scores {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 250px;
+}
+
+#high-scores h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+#high-scores p {
+    margin: 5px 0;
+    font-size: 1.1em;
+}

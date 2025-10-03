@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rialo Flip</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Rialo Flip</h1>
+
+    <div id="high-scores">
+        <h2>Best Times 🏆</h2>
+        <p>Easy: <span id="easy-best-time">--:--</span></p>
+        <p>Medium: <span id="medium-best-time">--:--</span></p>
+    </div>
+
+    <div id="difficulty-selector">
+        <h2>Choose Difficulty:</h2>
+        <button class="difficulty-btn" data-difficulty="easy">Easy (3x2)</button>
+        <button class="difficulty-btn" data-difficulty="medium">Medium (4x3)</button>
+    </div>
+
+    <div id="game-container" class="hidden">
+        <div id="stats-container">
+            <p>Moves: <span id="moves-count">0</span></p>
+            <p>Time: <span id="timer">00:00</span></p>
+        </div>
+
+        <div id="game-board"></div>
+
+        <button id="restart-button">Restart Game</button>
+        
+        <p id="win-message" class="hidden">Congratulations! You found all the pairs! 🎉</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
