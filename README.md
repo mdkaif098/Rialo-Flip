@@ -31,16 +31,8 @@ This project was built from scratch using only core web technologies. No framewo
 
 ## 🚀 Getting Started
 
-To run this project locally, follow these simple steps:
+To play this Game, just click on the below link 👇 :
 
-1.  Clone the repository :
-    ```bash
-    git clone [https://github.com/mdkaif098/rialo-flip.git](https://github.com/mdkaif098/rialo-flip.git)
-    ```
-2.  Navigate to the project directory:
-    ```bash
-    cd rialo-flip
-    ```
-3.  Open the `index.html` file in your favorite web browser.
+https://mdkaif098.github.io/rialo-flip/
 
 And that's it! You're ready to play.
